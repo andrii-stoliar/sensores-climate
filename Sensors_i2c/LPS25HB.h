@@ -30,5 +30,6 @@ void LPS25HB_write_byte(uint8_t reg_addr, uint8_t value);
 void LPS25HB_init(void);
 
 void LPS25HB_get_pressure_calibration(void);
+void LPS25HB_get_pressure(float* pressure);
 #endif /* LPS25HB_H_ */
 

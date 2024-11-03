@@ -17,10 +17,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h \
+ C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/LPS25HB.h \
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/i2c.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h \
- C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/HTS221.h \
- C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/LPS25HB.h
+ C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/HTS221.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_i2c.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:
@@ -40,10 +40,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:
+C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/LPS25HB.h:
 ../Core/Inc/dma.h:
 ../Core/Inc/main.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
 C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/HTS221.h:
-C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/LPS25HB.h:

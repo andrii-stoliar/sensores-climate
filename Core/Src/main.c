@@ -61,6 +61,16 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
+
+#include <math.h>
+
+#define SEA_LEVEL_PRESSURE 101325 // Pa, standard sea level pressure
+
+// Function to calculate altitude based on pressure
+float calculateAltitude(float pressure) {
+    return (44330.0 * (1.0 - pow((pressure / SEA_LEVEL_PRESSURE), 0.1903)));
+}
+
 /* USER CODE BEGIN 0 */
 
 
@@ -72,6 +82,7 @@ void SystemClock_Config(void);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -109,21 +120,27 @@ int main(void)
   HTS221_init();
   LPS25HB_init();
 
+  char tx_data[120];
+  const char tx_message[] = "Temperature: %2.1f°C, Humidity: %.0f%%, Altitude: %.2f m, Pressure: %.2f Pa\r\n";
+  //uint8_t tx_data[120];
+  LL_mDelay(10);
+  LPS25HB_get_pressure(&refference_pressure); // Reference pressure at the start for altitude comparison
 
-  	const uint8_t tx_message[] = "%2.1f, %.0f, %.2f, %.2f \r\n";
-  	uint8_t tx_data[120];
-  	LL_mDelay(10);
-  	LPS25HB_get_pressure(&refference_pressure);
-  	while (1) {
+  while (1) {
+          HTS221_get_temperature(&temperature);
+          HTS221_get_humidity(&humidity);
+          LPS25HB_get_pressure(&pressure);
 
-  		HTS221_get_temperature(&temperature);
-  		HTS221_get_humidity(&humidity);
-  		LPS25HB_get_pressure(&pressure);
-  		float alt = (float)44330.00 * (1-pow(pressure/refference_pressure,1/5.255));
-  	    uint8_t tx_data_len = (uint8_t)sprintf((char*)tx_data, (char*)tx_message, temperature, humidity, alt, pressure);
-  	    USART2_PutBuffer(tx_data, tx_data_len);
-  	    LL_mDelay(500);
-  	}
+          // Calculate altitude based on current pressure vs reference pressure
+          float altitude = 44330.0 * (1.0 - pow(pressure / refference_pressure, 1 / 5.255));
+
+          // Use sprintf to format the data into tx_data
+          uint8_t tx_data_len = (uint8_t)sprintf(tx_data, tx_message, temperature, humidity, altitude, pressure);
+
+          // Send the formatted data
+          USART2_PutBuffer((uint8_t*)tx_data, tx_data_len);
+          LL_mDelay(500);
+      }
 
   /* USER CODE END 3 */
 }

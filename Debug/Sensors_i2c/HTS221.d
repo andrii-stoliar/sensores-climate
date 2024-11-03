@@ -18,6 +18,7 @@ Sensors_i2c/HTS221.o: ../Sensors_i2c/HTS221.c ../Sensors_i2c/HTS221.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h \
+ C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/LPS25HB.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h
 ../Sensors_i2c/HTS221.h:
 ../Core/Inc/main.h:
@@ -39,5 +40,6 @@ Sensors_i2c/HTS221.o: ../Sensors_i2c/HTS221.c ../Sensors_i2c/HTS221.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:
+C:/MyFiles/Study/7th_sem/VRS/Workspace/sensores-climate/Sensors_i2c/LPS25HB.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/main.h:
