@@ -201,15 +201,58 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles I2C1 event global interrupt / I2C1 wake-up interrupt through EXT line 23.
   */
+void DMA1_Channel6_IRQHandler(void)
+{
+	if(LL_DMA_IsActiveFlag_TC6(DMA1) == SET)
+		{
+
+			LL_DMA_ClearFlag_TC6(DMA1);
+		}
+		else if(LL_DMA_IsActiveFlag_HT6(DMA1) == SET)
+		{
+			LL_DMA_ClearFlag_HT6(DMA1);
+		}
+}
+
+/**
+  * @brief This function handles DMA1 channel7 global interrupt.
+  */
+void DMA1_Channel7_IRQHandler(void)
+{
+	if(LL_DMA_IsActiveFlag_TC7(DMA1) == SET)
+		{
+			LL_DMA_ClearFlag_TC7(DMA1);
+
+			while(LL_USART_IsActiveFlag_TC(USART2) == RESET);
+			LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_7);
+		}
+}
+
+/**
+  * @brief This function handles I2C1 event global interrupt / I2C1 wake-up interrupt through EXT line 23.
+  */
 void I2C1_EV_IRQHandler(void)
 {
   /* USER CODE BEGIN I2C1_EV_IRQn 0 */
-
+	if (LL_I2C_IsActiveFlag_RXNE(I2C1)) {
+			I2C1_Master_Reception_Callback();
+		}
   /* USER CODE END I2C1_EV_IRQn 0 */
 
   /* USER CODE BEGIN I2C1_EV_IRQn 1 */
 
   /* USER CODE END I2C1_EV_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART2 global interrupt / USART2 wake-up interrupt through EXT line 26.
+  */
+void USART2_IRQHandler(void)
+{
+	if(LL_USART_IsActiveFlag_IDLE(USART2))
+		{
+			LL_USART_ClearFlag_IDLE(USART2);
+		}
 }
 
 /* USER CODE BEGIN 1 */
