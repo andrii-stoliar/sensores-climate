@@ -5,9 +5,34 @@
  *      Author: andre
  */
 
-#ifndef INC_DMA_H_
-#define INC_DMA_H_
+#ifndef __DMA_H__
+#define __DMA_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
 
-#endif /* INC_DMA_H_ */
+/* DMA memory to memory transfer handles -------------------------------------*/
+
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* USER CODE BEGIN Private defines */
+
+/* USER CODE END Private defines */
+
+void MX_DMA_Init(void);
+
+/* USER CODE BEGIN Prototypes */
+
+/* USER CODE END Prototypes */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __DMA_H__ */
