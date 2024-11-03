@@ -1,0 +1,5 @@
+../Sensors_i2c/LPS25HB.c:13:6:LPS25HB_read_bytes	32	static
+../Sensors_i2c/LPS25HB.c:19:6:LPS25HB_write_bytes	32	static
+../Sensors_i2c/LPS25HB.c:24:6:LPS25HB_init	16	static
+../Sensors_i2c/LPS25HB.c:41:6:LPS25HB_get_pressure_calibration	16	static
+../Sensors_i2c/LPS25HB.c:50:6:LPS25HB_get_pressure	24	static

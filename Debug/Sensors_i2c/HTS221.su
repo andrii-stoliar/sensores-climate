@@ -1,0 +1,7 @@
+../Sensors_i2c/HTS221.c:18:6:HTS221_read_bytes	32	static
+../Sensors_i2c/HTS221.c:25:6:HTS221_write_bytes	32	static
+../Sensors_i2c/HTS221.c:29:6:HTS221_init	16	static
+../Sensors_i2c/HTS221.c:48:6:HTS221_get_humidity_calibration	24	static
+../Sensors_i2c/HTS221.c:73:6:HTS221_get_humidity	24	static
+../Sensors_i2c/HTS221.c:86:6:HTS221_get_temperature_calibration	40	static
+../Sensors_i2c/HTS221.c:113:6:HTS221_get_temperature	24	static
