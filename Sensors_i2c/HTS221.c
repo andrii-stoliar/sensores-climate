@@ -111,7 +111,7 @@ LL_mDelay(100);
 
 
 void HTS221_get_temperature(float* temperature_out) {
-    uint8_t t_out_buffer[2]; // Buffer to hold the two temperature bytes
+    uint8_t t_out_buffer[2];
     int16_t t_out;
 
     // Read both temperature registers at once
