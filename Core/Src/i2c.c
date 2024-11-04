@@ -68,7 +68,7 @@ void MX_I2C1_Init(void)
   LL_I2C_DisableGeneralCall(I2C1);
   LL_I2C_EnableClockStretching(I2C1);
   I2C_InitStruct.PeripheralMode = LL_I2C_MODE_I2C;
-  I2C_InitStruct.Timing = 0x00201D2B;
+  I2C_InitStruct.Timing = 0x2000090E;
   I2C_InitStruct.AnalogFilter = LL_I2C_ANALOGFILTER_ENABLE;
   I2C_InitStruct.DigitalFilter = 0;
   I2C_InitStruct.OwnAddress1 = 0;
@@ -110,7 +110,6 @@ uint8_t* i2c_master_read(uint8_t *buffer, uint8_t length, uint8_t register_addr,
 	end_of_read_flag = 0;
 	LL_I2C_EnableIT_RX(I2C1);
 
-	//poziadam slejva o citanie z jeho registra
 	LL_I2C_HandleTransfer(I2C1, slave_addr, LL_I2C_ADDRSLAVE_7BIT, 1,
 			LL_I2C_MODE_AUTOEND, LL_I2C_GENERATE_START_WRITE);
 	while (!LL_I2C_IsActiveFlag_STOP(I2C1)) {
@@ -121,13 +120,12 @@ uint8_t* i2c_master_read(uint8_t *buffer, uint8_t length, uint8_t register_addr,
 	LL_I2C_ClearFlag_STOP(I2C1);
 	while (LL_I2C_IsActiveFlag_STOP(I2C1)) {
 	}
-	//citam register od slejva
+
 	LL_I2C_HandleTransfer(I2C1, slave_addr, LL_I2C_ADDRSLAVE_7BIT, length,
 			LL_I2C_MODE_AUTOEND, LL_I2C_GENERATE_START_READ);
 	while (!LL_I2C_IsActiveFlag_STOP(I2C1)) {
 	};
 
-	//End of transfer
 	LL_I2C_ClearFlag_STOP(I2C1);
 	LL_I2C_DisableIT_RX(I2C1);
 	I2C1->ICR |= (1 << 4);

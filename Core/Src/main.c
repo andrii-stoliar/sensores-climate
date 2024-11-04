@@ -130,14 +130,8 @@ int main(void)
           HTS221_get_temperature(&temperature);
           HTS221_get_humidity(&humidity);
           LPS25HB_get_pressure(&pressure);
-
-          // Calculate altitude based on current pressure vs reference pressure
           float altitude = 44330.0 * (1.0 - pow(pressure / refference_pressure, 1 / 5.255));
-
-          // Use sprintf to format the data into tx_data
           uint8_t tx_data_len = (uint8_t)sprintf(tx_data, tx_message, temperature, humidity, altitude, pressure);
-
-          // Send the formatted data
           USART2_PutBuffer((uint8_t*)tx_data, tx_data_len);
           LL_mDelay(500);
       }

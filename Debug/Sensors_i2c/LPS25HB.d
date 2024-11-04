@@ -17,7 +17,8 @@ Sensors_i2c/LPS25HB.o: ../Sensors_i2c/LPS25HB.c ../Sensors_i2c/LPS25HB.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_utils.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_pwr.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h \
+ ../Core/Inc/i2c.h ../Core/Inc/main.h
 ../Sensors_i2c/LPS25HB.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:
@@ -38,3 +39,5 @@ Sensors_i2c/LPS25HB.o: ../Sensors_i2c/LPS25HB.c ../Sensors_i2c/LPS25HB.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_pwr.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:
+../Core/Inc/i2c.h:
+../Core/Inc/main.h:

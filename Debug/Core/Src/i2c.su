@@ -20,4 +20,4 @@
 ../Core/Src/i2c.c:29:6:MX_I2C1_Init	64	static
 ../Core/Src/i2c.c:86:6:i2c_master_write_multi	40	static
 ../Core/Src/i2c.c:104:10:i2c_master_read	24	static
-../Core/Src/i2c.c:139:6:I2C1_Master_Reception_Callback	16	static
+../Core/Src/i2c.c:137:6:I2C1_Master_Reception_Callback	16	static

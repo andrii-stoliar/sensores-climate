@@ -12,7 +12,7 @@ uint16_t LPS25HB_PressureOffset;
 
 void LPS25HB_read_bytes(uint8_t reg_addr, uint8_t* values, size_t length) {
     i2c_master_read(values, length, reg_addr, LPS25HB_address, 1);
-    // Added a delay or a check for 'end_of_read_flag' to ensure data has been read before proceeding
+    LL_mDelay(5);
 
 }
 

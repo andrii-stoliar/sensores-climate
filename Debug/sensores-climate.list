@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  00006068  2**0
                   CONTENTS, READONLY
- 13 .debug_info   000068f5  00000000  00000000  00006098  2**0
+ 13 .debug_info   0000691f  00000000  00000000  00006098  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00001ad2  00000000  00000000  0000c98d  2**0
+ 14 .debug_abbrev 00001ad4  00000000  00000000  0000c9b7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000860  00000000  00000000  0000e460  2**3
+ 15 .debug_aranges 00000860  00000000  00000000  0000e490  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000609  00000000  00000000  0000ecc0  2**0
+ 16 .debug_rnglists 00000609  00000000  00000000  0000ecf0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0001740a  00000000  00000000  0000f2c9  2**0
+ 17 .debug_macro  00017418  00000000  00000000  0000f2f9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00008331  00000000  00000000  000266d3  2**0
+ 18 .debug_line   0000833b  00000000  00000000  00026711  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00075ff4  00000000  00000000  0002ea04  2**0
+ 19 .debug_str    00075ff4  00000000  00000000  0002ea4c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  000a49f8  2**0
+ 20 .comment      00000043  00000000  00000000  000a4a40  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00002ab8  00000000  00000000  000a4a3c  2**2
+ 21 .debug_frame  00002ab8  00000000  00000000  000a4a84  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000066  00000000  00000000  000a74f4  2**0
+ 22 .debug_line_str 00000066  00000000  00000000  000a753c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1945,7 +1945,7 @@ void MX_I2C1_Init(void)
   I2C_InitStruct.PeripheralMode = LL_I2C_MODE_I2C;
  80011c0:	2300      	movs	r3, #0
  80011c2:	61fb      	str	r3, [r7, #28]
-  I2C_InitStruct.Timing = 0x00201D2B;
+  I2C_InitStruct.Timing = 0x2000090E;
  80011c4:	4b0f      	ldr	r3, [pc, #60]	@ (8001204 <MX_I2C1_Init+0xd8>)
  80011c6:	623b      	str	r3, [r7, #32]
   I2C_InitStruct.AnalogFilter = LL_I2C_ANALOGFILTER_ENABLE;
@@ -1985,7 +1985,7 @@ void MX_I2C1_Init(void)
  80011fa:	bf00      	nop
  80011fc:	48000400 	.word	0x48000400
  8001200:	40005400 	.word	0x40005400
- 8001204:	00201d2b 	.word	0x00201d2b
+ 8001204:	2000090e 	.word	0x2000090e
 
 08001208 <i2c_master_write_multi>:
 
@@ -2112,7 +2112,6 @@ uint8_t* i2c_master_read(uint8_t *buffer, uint8_t length, uint8_t register_addr,
  80012d4:	482b      	ldr	r0, [pc, #172]	@ (8001384 <i2c_master_read+0xe4>)
  80012d6:	f7ff fe46 	bl	8000f66 <LL_I2C_EnableIT_RX>
 
-	//poziadam slejva o citanie z jeho registra
 	LL_I2C_HandleTransfer(I2C1, slave_addr, LL_I2C_ADDRSLAVE_7BIT, 1,
  80012da:	7879      	ldrb	r1, [r7, #1]
  80012dc:	4b2a      	ldr	r3, [pc, #168]	@ (8001388 <i2c_master_read+0xe8>)
@@ -2156,7 +2155,7 @@ uint8_t* i2c_master_read(uint8_t *buffer, uint8_t length, uint8_t register_addr,
  8001324:	2b00      	cmp	r3, #0
  8001326:	d1f9      	bne.n	800131c <i2c_master_read+0x7c>
 	}
-	//citam register od slejva
+
 	LL_I2C_HandleTransfer(I2C1, slave_addr, LL_I2C_ADDRSLAVE_7BIT, length,
  8001328:	7879      	ldrb	r1, [r7, #1]
  800132a:	78fb      	ldrb	r3, [r7, #3]
@@ -2177,7 +2176,6 @@ uint8_t* i2c_master_read(uint8_t *buffer, uint8_t length, uint8_t register_addr,
  800134a:	d0f9      	beq.n	8001340 <i2c_master_read+0xa0>
 	};
 
-	//End of transfer
 	LL_I2C_ClearFlag_STOP(I2C1);
  800134c:	480d      	ldr	r0, [pc, #52]	@ (8001384 <i2c_master_read+0xe4>)
  800134e:	f7ff fe50 	bl	8000ff2 <LL_I2C_ClearFlag_STOP>
@@ -2855,8 +2853,6 @@ int main(void)
           LPS25HB_get_pressure(&pressure);
  8001782:	483d      	ldr	r0, [pc, #244]	@ (8001878 <main+0x170>)
  8001784:	f001 fe30 	bl	80033e8 <LPS25HB_get_pressure>
-
-          // Calculate altitude based on current pressure vs reference pressure
           float altitude = 44330.0 * (1.0 - pow(pressure / refference_pressure, 1 / 5.255));
  8001788:	4b3b      	ldr	r3, [pc, #236]	@ (8001878 <main+0x170>)
  800178a:	ed93 7a00 	vldr	s14, [r3]
@@ -2888,8 +2884,6 @@ int main(void)
  80017d8:	f7ff f9b6 	bl	8000b48 <__aeabi_d2f>
  80017dc:	4603      	mov	r3, r0
  80017de:	f8c7 30cc 	str.w	r3, [r7, #204]	@ 0xcc
-
-          // Use sprintf to format the data into tx_data
           uint8_t tx_data_len = (uint8_t)sprintf(tx_data, tx_message, temperature, humidity, altitude, pressure);
  80017e2:	4b23      	ldr	r3, [pc, #140]	@ (8001870 <main+0x168>)
  80017e4:	681b      	ldr	r3, [r3, #0]
@@ -2923,8 +2917,6 @@ int main(void)
  800182e:	f001 fe01 	bl	8003434 <siprintf>
  8001832:	4603      	mov	r3, r0
  8001834:	f887 30cb 	strb.w	r3, [r7, #203]	@ 0xcb
-
-          // Send the formatted data
           USART2_PutBuffer((uint8_t*)tx_data, tx_data_len);
  8001838:	f897 20cb 	ldrb.w	r2, [r7, #203]	@ 0xcb
  800183c:	f107 0350 	add.w	r3, r7, #80	@ 0x50
@@ -4940,8 +4932,8 @@ void MX_USART2_UART_Init(void) {
  800244a:	2026      	movs	r0, #38	@ 0x26
  800244c:	f7ff fbe6 	bl	8001c1c <__NVIC_EnableIRQ>
 
-	USART_InitStruct.BaudRate = 230400;
- 8002450:	f44f 3361 	mov.w	r3, #230400	@ 0x38400
+	USART_InitStruct.BaudRate = 256000;
+ 8002450:	f44f 337a 	mov.w	r3, #256000	@ 0x3e800
  8002454:	61fb      	str	r3, [r7, #28]
 	USART_InitStruct.DataWidth = LL_USART_DATAWIDTH_8B;
  8002456:	2300      	movs	r3, #0
@@ -7452,43 +7444,42 @@ void LPS25HB_read_bytes(uint8_t reg_addr, uint8_t* values, size_t length) {
  800330a:	607a      	str	r2, [r7, #4]
  800330c:	73fb      	strb	r3, [r7, #15]
     i2c_master_read(values, length, reg_addr, LPS25HB_address, 1);
- 800330e:	7bfa      	ldrb	r2, [r7, #15]
- 8003310:	4b06      	ldr	r3, [pc, #24]	@ (800332c <LPS25HB_read_bytes+0x2c>)
- 8003312:	781b      	ldrb	r3, [r3, #0]
- 8003314:	4619      	mov	r1, r3
- 8003316:	2301      	movs	r3, #1
- 8003318:	9300      	str	r3, [sp, #0]
- 800331a:	460b      	mov	r3, r1
- 800331c:	6879      	ldr	r1, [r7, #4]
- 800331e:	68b8      	ldr	r0, [r7, #8]
- 8003320:	f7fd ffbe 	bl	80012a0 <i2c_master_read>
-    // Added a delay or a check for 'end_of_read_flag' to ensure data has been read before proceeding
+ 800330e:	687b      	ldr	r3, [r7, #4]
+ 8003310:	b2d9      	uxtb	r1, r3
+ 8003312:	4b07      	ldr	r3, [pc, #28]	@ (8003330 <LPS25HB_read_bytes+0x30>)
+ 8003314:	781b      	ldrb	r3, [r3, #0]
+ 8003316:	7bfa      	ldrb	r2, [r7, #15]
+ 8003318:	2001      	movs	r0, #1
+ 800331a:	9000      	str	r0, [sp, #0]
+ 800331c:	68b8      	ldr	r0, [r7, #8]
+ 800331e:	f7fd ffbf 	bl	80012a0 <i2c_master_read>
+    LL_mDelay(5);
+ 8003322:	2005      	movs	r0, #5
+ 8003324:	f7ff fe08 	bl	8002f38 <LL_mDelay>
 
 }
- 8003324:	bf00      	nop
- 8003326:	3710      	adds	r7, #16
- 8003328:	46bd      	mov	sp, r7
- 800332a:	bd80      	pop	{r7, pc}
- 800332c:	20000005 	.word	0x20000005
+ 8003328:	bf00      	nop
+ 800332a:	3710      	adds	r7, #16
+ 800332c:	46bd      	mov	sp, r7
+ 800332e:	bd80      	pop	{r7, pc}
+ 8003330:	20000005 	.word	0x20000005
 
-08003330 <LPS25HB_write_bytes>:
+08003334 <LPS25HB_write_bytes>:
 
 void LPS25HB_write_bytes(uint8_t reg_addr, uint8_t* values, size_t length) {
- 8003330:	b580      	push	{r7, lr}
- 8003332:	b086      	sub	sp, #24
- 8003334:	af02      	add	r7, sp, #8
- 8003336:	4603      	mov	r3, r0
- 8003338:	60b9      	str	r1, [r7, #8]
- 800333a:	607a      	str	r2, [r7, #4]
- 800333c:	73fb      	strb	r3, [r7, #15]
+ 8003334:	b580      	push	{r7, lr}
+ 8003336:	b086      	sub	sp, #24
+ 8003338:	af02      	add	r7, sp, #8
+ 800333a:	4603      	mov	r3, r0
+ 800333c:	60b9      	str	r1, [r7, #8]
+ 800333e:	607a      	str	r2, [r7, #4]
+ 8003340:	73fb      	strb	r3, [r7, #15]
     i2c_master_write_multi(values, length, reg_addr, LPS25HB_address, 0);
- 800333e:	7bfa      	ldrb	r2, [r7, #15]
- 8003340:	4b06      	ldr	r3, [pc, #24]	@ (800335c <LPS25HB_write_bytes+0x2c>)
- 8003342:	781b      	ldrb	r3, [r3, #0]
- 8003344:	4619      	mov	r1, r3
- 8003346:	2300      	movs	r3, #0
- 8003348:	9300      	str	r3, [sp, #0]
- 800334a:	460b      	mov	r3, r1
+ 8003342:	4b06      	ldr	r3, [pc, #24]	@ (800335c <LPS25HB_write_bytes+0x28>)
+ 8003344:	781b      	ldrb	r3, [r3, #0]
+ 8003346:	7bfa      	ldrb	r2, [r7, #15]
+ 8003348:	2100      	movs	r1, #0
+ 800334a:	9100      	str	r1, [sp, #0]
  800334c:	6879      	ldr	r1, [r7, #4]
  800334e:	68b8      	ldr	r0, [r7, #8]
  8003350:	f7fd ff5a 	bl	8001208 <i2c_master_write_multi>
@@ -7543,7 +7534,7 @@ void LPS25HB_init() {
  800339a:	2201      	movs	r2, #1
  800339c:	4619      	mov	r1, r3
  800339e:	2020      	movs	r0, #32
- 80033a0:	f7ff ffc6 	bl	8003330 <LPS25HB_write_bytes>
+ 80033a0:	f7ff ffc8 	bl	8003334 <LPS25HB_write_bytes>
             LPS25HB_get_pressure_calibration();
  80033a4:	f000 f806 	bl	80033b4 <LPS25HB_get_pressure_calibration>
         }

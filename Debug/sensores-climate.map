@@ -2332,11 +2332,11 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
                 0x080032a0       0x60 ./Sensors_i2c/HTS221.o
                 0x080032a0                HTS221_get_temperature
  .text.LPS25HB_read_bytes
-                0x08003300       0x30 ./Sensors_i2c/LPS25HB.o
+                0x08003300       0x34 ./Sensors_i2c/LPS25HB.o
                 0x08003300                LPS25HB_read_bytes
  .text.LPS25HB_write_bytes
-                0x08003330       0x30 ./Sensors_i2c/LPS25HB.o
-                0x08003330                LPS25HB_write_bytes
+                0x08003334       0x2c ./Sensors_i2c/LPS25HB.o
+                0x08003334                LPS25HB_write_bytes
  .text.LPS25HB_init
                 0x08003360       0x54 ./Sensors_i2c/LPS25HB.o
                 0x08003360                LPS25HB_init
@@ -2751,7 +2751,7 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
 LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000     0x68f5
+.debug_info     0x00000000     0x691f
  .debug_info    0x00000000      0x72d ./Core/Src/dma.o
  .debug_info    0x0000072d      0x1d9 ./Core/Src/gpio.o
  .debug_info    0x00000906      0xdec ./Core/Src/i2c.o
@@ -2767,9 +2767,9 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
  .debug_info    0x0000538b      0x68a ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_usart.o
  .debug_info    0x00005a15      0x803 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_utils.o
  .debug_info    0x00006218      0x41d ./Sensors_i2c/HTS221.o
- .debug_info    0x00006635      0x2c0 ./Sensors_i2c/LPS25HB.o
+ .debug_info    0x00006635      0x2ea ./Sensors_i2c/LPS25HB.o
 
-.debug_abbrev   0x00000000     0x1ad2
+.debug_abbrev   0x00000000     0x1ad4
  .debug_abbrev  0x00000000      0x197 ./Core/Src/dma.o
  .debug_abbrev  0x00000197      0x102 ./Core/Src/gpio.o
  .debug_abbrev  0x00000299      0x266 ./Core/Src/i2c.o
@@ -2785,7 +2785,7 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
  .debug_abbrev  0x00001439      0x1dd ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_usart.o
  .debug_abbrev  0x00001616      0x2b9 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_utils.o
  .debug_abbrev  0x000018cf       0xfe ./Sensors_i2c/HTS221.o
- .debug_abbrev  0x000019cd      0x105 ./Sensors_i2c/LPS25HB.o
+ .debug_abbrev  0x000019cd      0x107 ./Sensors_i2c/LPS25HB.o
 
 .debug_aranges  0x00000000      0x860
  .debug_aranges
@@ -2856,7 +2856,7 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
  .debug_rnglists
                 0x000005de       0x2b ./Sensors_i2c/LPS25HB.o
 
-.debug_macro    0x00000000    0x1740a
+.debug_macro    0x00000000    0x17418
  .debug_macro   0x00000000      0x245 ./Core/Src/dma.o
  .debug_macro   0x00000245      0xaea ./Core/Src/dma.o
  .debug_macro   0x00000d2f       0x2e ./Core/Src/dma.o
@@ -2929,9 +2929,9 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
  .debug_macro   0x00016b49      0x2f1 ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_usart.o
  .debug_macro   0x00016e3a      0x13a ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_utils.o
  .debug_macro   0x00016f74      0x252 ./Sensors_i2c/HTS221.o
- .debug_macro   0x000171c6      0x244 ./Sensors_i2c/LPS25HB.o
+ .debug_macro   0x000171c6      0x252 ./Sensors_i2c/LPS25HB.o
 
-.debug_line     0x00000000     0x8331
+.debug_line     0x00000000     0x833b
  .debug_line    0x00000000      0x89b ./Core/Src/dma.o
  .debug_line    0x0000089b      0x7ba ./Core/Src/gpio.o
  .debug_line    0x00001055      0xb77 ./Core/Src/i2c.o
@@ -2947,7 +2947,7 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
  .debug_line    0x00006105      0x74b ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_usart.o
  .debug_line    0x00006850      0x97b ./Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_utils.o
  .debug_line    0x000071cb      0x925 ./Sensors_i2c/HTS221.o
- .debug_line    0x00007af0      0x841 ./Sensors_i2c/LPS25HB.o
+ .debug_line    0x00007af0      0x84b ./Sensors_i2c/LPS25HB.o
 
 .debug_str      0x00000000    0x75ff4
  .debug_str     0x00000000    0x71bf5 ./Core/Src/dma.o
@@ -2981,7 +2981,7 @@ LOAD C:/MyFiles/Study/Soft/STM32Cube/STM32CubeIDE_1.16.1/STM32CubeIDE/plugins/co
  .debug_str     0x00075da6      0x1ba ./Sensors_i2c/HTS221.o
                               0x71e42 (size before relaxing)
  .debug_str     0x00075f60       0x94 ./Sensors_i2c/LPS25HB.o
-                              0x71c37 (size before relaxing)
+                              0x71c4c (size before relaxing)
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Core/Src/dma.o
