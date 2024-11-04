@@ -1,7 +1,5 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
 ../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:285:22:LL_AHB1_GRP1_EnableClock	24	static
-../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:535:22:LL_APB1_GRP1_EnableClock	24	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:489:22:LL_DMA_EnableChannel	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:508:22:LL_DMA_DisableChannel	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:588:22:LL_DMA_SetDataTransferDirection	24	static
@@ -19,6 +17,8 @@
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:1797:22:LL_DMA_EnableIT_TC	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:1816:22:LL_DMA_EnableIT_HT	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:1835:22:LL_DMA_EnableIT_TE	16	static
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:285:22:LL_AHB1_GRP1_EnableClock	24	static
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_bus.h:535:22:LL_APB1_GRP1_EnableClock	24	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:537:22:LL_USART_Enable	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:2260:22:LL_USART_ConfigAsyncMode	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_usart.h:2930:22:LL_USART_EnableIT_IDLE	40	static,ignoring_inline_asm

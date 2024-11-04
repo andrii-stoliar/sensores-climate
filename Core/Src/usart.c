@@ -149,7 +149,3 @@ void resetBuffer()
     LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_6);
     Should_load = 0;
 }
-
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */

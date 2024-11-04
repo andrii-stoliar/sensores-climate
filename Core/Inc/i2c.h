@@ -40,6 +40,7 @@ void MX_I2C1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void i2c_master_write(uint8_t data, uint8_t register_addr, uint8_t slave_addr, uint8_t read_flag);
+void i2c_master_write_multi(uint8_t* data, size_t length, uint8_t register_addr, uint8_t slave_addr, uint8_t read_flag);
 uint8_t* i2c_master_read(uint8_t* buffer, uint8_t length, uint8_t register_addr, uint8_t slave_addr, uint8_t read_flag);
 void I2C1_Master_Reception_Callback(void);
 /* USER CODE END Prototypes */
@@ -49,5 +50,4 @@ void I2C1_Master_Reception_Callback(void);
 #endif
 
 #endif /* __I2C_H__ */
-
 
